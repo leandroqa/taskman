@@ -14,13 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::middleware('auth:api')->get('/user', function (Request $request) {
-//     return $request->user();
-// });
-
-Route::get('projects', 'ProjectController@index');
-Route::post('projects', 'ProjectController@store');
-Route::get('projects/{id}', 'ProjectController@show');
-Route::put('projects/{project}', 'ProjectController@markAsCompleted');
-Route::post('tasks', 'TaskController@store');
-Route::put('tasks/{task}', 'TaskController@markAsCompleted');
+Route::get('projects', 'ProjectController@index')->name('projects.index');
+Route::post('projects', 'ProjectController@store')->name('projects.store');
+Route::get('projects/{id}', 'ProjectController@show')->name('projects.show');
+Route::put('projects/{project}', 'ProjectController@markAsCompleted')->name('projects.update');
+Route::post('tasks', 'TaskController@store')->name('tasks.store');
+Route::put('tasks/{task}', 'TaskController@markAsCompleted')->name('tasks.update');
